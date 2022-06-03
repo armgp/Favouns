@@ -7,5 +7,5 @@ import com.projectgp.favouns.model.Favoun;
 
 @Repository
 public interface FavounRepository extends JpaRepository<Favoun, Long>{
-	
+
 }

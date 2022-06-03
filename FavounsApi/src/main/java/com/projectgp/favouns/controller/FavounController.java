@@ -17,8 +17,8 @@ import com.projectgp.favouns.repository.FavounRepository;
 public class FavounController {
 
 	@Autowired
-	FavounRepository favounRepo; 
-	
+	FavounRepository favounRepo;
+
 	@GetMapping("favouns")
 	public List<Favoun> getAllFavouns(){
 		return favounRepo.findAll();
