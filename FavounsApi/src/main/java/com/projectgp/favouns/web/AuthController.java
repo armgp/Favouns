@@ -41,15 +41,36 @@ public class AuthController {
 
             User user = (User) authenticate.getPrincipal();
             user.setPassword(null);
-            return ResponseEntity.ok()
-                .header(
-                    HttpHeaders.AUTHORIZATION,
-                    jwtUtil.generateToken(user)
-                )
-                .body(user);
+            
+
+//            return ResponseEntity.ok()
+//            .header(
+//            	HttpHeaders.AUTHORIZATION,
+//            	jwtUtil.generateToken(user)
+//            )
+//            .body(user);
+            
+          HttpHeaders responseHeaders = new HttpHeaders();
+          responseHeaders.set("authorization", jwtUtil.generateToken(user));
+          responseHeaders.set("Access-Control-Expose-Headers", "*, Authorization");
+          
+          return new ResponseEntity<User>(user, responseHeaders, HttpStatus.OK);
+
+            
         } catch (BadCredentialsException ex) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
 	}
 
 }
+
+//HttpHeaders responseHeaders = new HttpHeaders();
+//responseHeaders.set("authorization", jwtUtil.generateToken(user));
+//
+//return new ResponseEntity<User>(user, responseHeaders, HttpStatus.OK);
+
+//return ResponseEntity.ok()
+//.headers(responseHeaders)
+//.body(user);
+
+

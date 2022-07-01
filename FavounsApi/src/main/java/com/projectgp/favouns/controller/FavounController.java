@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.projectgp.favouns.model.Favoun;
 import com.projectgp.favouns.repository.FavounRepository;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("api/")
 public class FavounController {
