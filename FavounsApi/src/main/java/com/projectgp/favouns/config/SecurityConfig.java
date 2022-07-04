@@ -44,12 +44,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override //authorization(roles)
 	protected void configure(HttpSecurity http) throws Exception {
-		http = http.csrf().disable().cors().disable();
+		http = http.csrf().disable();
 		
 		http = http.sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 				.and();
-		
+		http.cors();
 		http = http.exceptionHandling()
 				.authenticationEntryPoint((request, response, authException) -> {
 					response.sendError(HttpServletResponse.SC_UNAUTHORIZED, authException.getMessage());

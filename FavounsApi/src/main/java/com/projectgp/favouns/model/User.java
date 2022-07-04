@@ -28,6 +28,7 @@ public class User implements UserDetails {
 	private LocalDate startDate;
 	private String username;
 	private String password;
+	private Long oweins;
 //	private List<Authority> authorities = new ArrayList<>();
 	
 	@Override
