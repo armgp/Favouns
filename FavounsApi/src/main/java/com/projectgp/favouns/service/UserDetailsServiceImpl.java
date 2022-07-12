@@ -25,4 +25,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		return userOpt.orElseThrow(() -> new UsernameNotFoundException("Invalid credentials"));
 		
 	}
+
+	public User saveUser(User user) {
+		return userRepo.save(user);
+	}
+	
+	
 }
